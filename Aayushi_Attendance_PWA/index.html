@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f4e78">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<title>Aayushi Attendance</title>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="eyebrow">B.Tech CSE • Sem 1 • Group 1</div>
+    <h1>Aayushi Attendance</h1>
+  </div>
+  <button id="installBtn" class="iconbtn" hidden>Install</button>
+</header>
+
+<main>
+  <section id="dashboard" class="page active">
+    <div class="hero card">
+      <div>
+        <div class="muted">Overall attendance</div>
+        <div id="overallPct" class="big">—</div>
+      </div>
+      <div class="ring"><span id="ringPct">0%</span></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat card"><b id="counted">0</b><span>Counted</span></div>
+      <div class="stat card"><b id="present">0</b><span>Present</span></div>
+      <div class="stat card"><b id="absent">0</b><span>Absent</span></div>
+      <div class="stat card"><b id="cancelled">0</b><span>Cancelled</span></div>
+    </div>
+
+    <div class="card">
+      <div class="sectionhead"><h2>Subject-wise</h2></div>
+      <div id="subjectList"></div>
+    </div>
+
+    <div class="card">
+      <div class="sectionhead"><h2>Attendance advisor</h2></div>
+      <div id="advisor"></div>
+    </div>
+  </section>
+
+  <section id="week" class="page">
+    <div class="card">
+      <div class="sectionhead">
+        <h2>Weekly timetable</h2>
+        <button id="addClass" class="primary small">+ Class</button>
+      </div>
+      <label>Week starting <input id="weekStart" type="date"></label>
+      <p class="hint">Enter the actual timetable for each week. Timetable changes do not alter past attendance.</p>
+      <div id="weekClasses"></div>
+    </div>
+  </section>
+
+  <section id="attendance" class="page">
+    <div class="card">
+      <div class="sectionhead"><h2>Record attendance</h2><button id="todayBtn" class="secondary small">Today</button></div>
+      <div id="attendanceList"></div>
+    </div>
+  </section>
+
+  <section id="data" class="page">
+    <div class="card">
+      <h2>Data & backup</h2>
+      <p class="hint">Your data is stored on this device. Export a backup regularly.</p>
+      <div class="buttonrow">
+        <button id="exportBtn" class="primary">Export backup</button>
+        <label class="filebtn secondary">Import backup<input id="importFile" type="file" accept=".json"></label>
+      </div>
+      <button id="clearBtn" class="danger">Clear all data</button>
+    </div>
+    <div class="card">
+      <h2>How attendance is counted</h2>
+      <ul>
+        <li><b>P</b> Present — counted.</li>
+        <li><b>A</b> Absent — counted.</li>
+        <li><b>L</b> Leave/Excused — excluded.</li>
+        <li><b>C</b> Cancelled — excluded.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<nav class="bottomnav">
+  <button data-page="dashboard" class="active">🏠<span>Home</span></button>
+  <button data-page="week">📅<span>Week</span></button>
+  <button data-page="attendance">✅<span>Attendance</span></button>
+  <button data-page="data">⚙️<span>Data</span></button>
+</nav>
+
+<div id="modal" class="modal" hidden>
+  <div class="modalbox">
+    <div class="sectionhead"><h2>Add class</h2><button id="closeModal">✕</button></div>
+    <label>Date<input id="mDate" type="date"></label>
+    <label>Time<input id="mTime" placeholder="10:00-11:00"></label>
+    <label>Course code<input id="mCode" placeholder="FCMT0101"></label>
+    <label>Subject<input id="mSubject" placeholder="Mathematics-I"></label>
+    <label>Room<input id="mRoom" placeholder="4012"></label>
+    <button id="saveClass" class="primary full">Save class</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
