@@ -1,0 +1,10 @@
+{
+  "name": "Aayushi Attendance",
+  "short_name": "Aayushi Attendance",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f7fa",
+  "theme_color": "#1f4e78",
+  "description": "Mobile-friendly attendance tracker for Aayushi",
+  "icons": []
+}
